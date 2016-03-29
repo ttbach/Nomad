@@ -5,10 +5,28 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
+    # @locations = Location.all
+    # @json = Location.all.to_gmaps4rails
+    #
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.xml  { render :xml => @locations }
+    # end
   end
 
   def show
     @user = User.find(params[:id])
+    @location = current_user.locations.find_by(params[:id])
+
+    puts("\n")
+    puts("Current user: " + current_user.name)
+    puts("Location: " + current_user.locations.find_by(params[:id]).to_s)
+    puts("\n")
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @location }
+    end
   end
 
   def new
@@ -19,7 +37,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to Thao's App!"
       redirect_to @user
     else
       render 'new'
@@ -53,15 +71,6 @@ class UsersController < ApplicationController
     end
 
     # Before filters
-
-    # Confirms a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
 
     # Confirms the correct user.
     def correct_user
