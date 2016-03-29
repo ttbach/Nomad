@@ -1,5 +1,7 @@
 == README
 
 Run `bundle update`
+
 Run `rake db:migrate`
+
 Run `rails s`
