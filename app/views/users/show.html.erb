@@ -12,8 +12,9 @@
     <% if @user.locations.any? %>
       <h3>Locations (<%= @user.locations.count %>)</h3>
       <ol class="locations">
-        <%= render @locations %>
+        <%= render 'locations/location' %>
       </ol>
     <% end %>
   </div>
+
 </div>

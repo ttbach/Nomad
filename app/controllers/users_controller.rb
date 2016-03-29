@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
-    # @locations = Location.all
+    # @locations = @Location.all
     # @json = Location.all.to_gmaps4rails
     #
     # respond_to do |format|
@@ -17,12 +17,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @location = current_user.locations.find_by(params[:id])
-
-    puts("\n")
-    puts("Current user: " + current_user.name)
-    puts("Location: " + current_user.locations.find_by(params[:id]).to_s)
-    puts("\n")
-
+    # @json = @user.locations.all.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @location }
