@@ -1,7 +1,11 @@
 == README
 
-Run `bundle update`
+On the terminal, run the following commands:
 
-Run `rake db:migrate`
+Run `bundle update` to download Ruby Gems from the Gemfile
 
-Run `rails s`
+Run `rake db:migrate` to migrate the database
+
+Run `rails s` to start the server
+
+Go to 'localhost:3000' on your browser to view the app
