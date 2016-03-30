@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
     @location = current_user.locations.build(location_params)
     respond_to do |format|
       if @location.save
-        format.html { redirect_to(request.referrer || root_url, :notice => 'Location was successfully created.') }
+        format.html { redirect_to(current_user, :notice => 'Location was successfully created.') }
         format.xml  { render :xml => @location, :status => :created, :location => @location }
 
       else

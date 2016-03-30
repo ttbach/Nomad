@@ -19,7 +19,7 @@ gem 'bcrypt',               '3.1.7'
 gem 'faker',                '1.4.2'
 gem 'will_paginate',           '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
-gem 'gmaps4rails',          '0.7.7'
+gem 'gmaps4rails',          '1.5.6'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
